@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>向request域中存数据</h3>
+<ul>
+    <li><a th:href="@{/testRequestByServlet}">测试servlet api 向request域对象共享数据</a></li>
+    <li><a th:href="@{/testModelAndView}">测试ModelAndView</a></li>
+    <li><a th:href="@{/testModel}">测试Model</a></li>
+    <li><a th:href="@{/testMap}">测试map</a></li>
+    <li><a th:href="@{/testModelMap}">测试modelMap</a></li>
+</ul>
+<h3>向session域中存数据</h3>
+<a th:href="@{/testSession}">测试session</a>
+<h3>向application域中存数据</h3>
+<a th:href="@{/testApplication}">测试Application</a>
+
+<hr>
+
+<h3>thymeleaf视图</h3>
+<a th:href="@{/testThyView}">测试thyView</a>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loy.mybatis.mapper.FiledMappingAttr">
+    <!--    非resultMap方法：-->
+    <!--    1、起别名-->
+    <select id="getEmpById" resultType="Employee">
+        select id, ename as empName, age
+        from employee;
+    </select>
+    <!--    2.开启全局配置-->
+
+    <!--    使用resultMap-->
+    <select id="getEmp1" resultMap="empResultMap">
+        select *
+        from employee
+        where id = #{id};
+    </select>
+    <resultMap id="empResultMap" type="Employee">
+        <id property="id" column="id"></id>
+        <result property="empName" column="ename"></result>
+        <result property="age" column="age"></result>
+    </resultMap>
+
+
+    <!--    多表连接-->
+    <select id="getEmpInfo" resultMap="empInfoResultMap">
+        select employee.id, ename, age, did, name
+        from employee
+                 left join department on employee.did = department.id
+        where employee.id = #{id};
+    </select>
+    <resultMap id="empInfoResultMap" type="Employee">
+        <!--
+             property：type指定的实体类中的属性名
+             column：查询出的sql语句中的字段名
+        -->
+        <id property="id" column="id"></id>
+        <result property="empName" column="ename"></result>
+        <result property="age" column="age"></result>
+        <result property="department.id" column="did"></result>
+        <result property="department.deptName" column="name"></result>
+    </resultMap>
+
+    <select id="getEmpInfo2" resultMap="empInfoResultMap2">
+        select employee.id, ename, age, did, name
+        from employee
+                 left join department on employee.did = department.id
+        where employee.id = #{id};
+    </select>
+    <resultMap id="empInfoResultMap2" type="Employee">
+        <id property="id" column="id"></id>
+        <result property="empName" column="ename"></result>
+        <result property="age" column="age"></result>
+        <!--
+             association:
+               property：多对一的属性名
+               javaType：多对一属性类型
+        -->
+        <association property="department" javaType="Department">
+            <id property="id" column="did"></id>
+            <result property="empName" column="name"></result>
+            <result property="age" column="age"></result>
+        </association>
+    </resultMap>
+
+
+
+
+
+<!--    分步查询
+Employee getEmpStepOne(@Param("id") Integer id);
+-->
+    <select id="getEmpStepOne" resultMap="empStepResultMap">
+        select * from employee where id=#{id}
+    </select>
+    <resultMap id="empStepResultMap" type="Employee">
+        <id property="id" column="id"></id>
+        <result property="empName" column="ename"></result>
+        <result property="age" column="age"></result>
+        <association property="department"   select="com.loy.mybatis.mapper.DeptMapper.getDept" column="did"></association>
+    </resultMap>
+
+<!--    一对多分布查询第二步-->
+<!--    List<Employee> getDeptAndEmpStepTwo(@Param("did") Integer did);-->
+    <select id="getDeptAndEmpStepTwo" resultType="Employee">
+        select id,ename as empName,age from employee where did=#{did};
+    </select>
+</mapper>

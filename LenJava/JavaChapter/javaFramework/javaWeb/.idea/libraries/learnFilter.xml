@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="learnFilter">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/learnFilter/web/WEB-INF/libs/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/learnFilter/web/WEB-INF/libs/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

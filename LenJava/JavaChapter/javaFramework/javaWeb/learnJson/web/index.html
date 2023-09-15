@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ajax测试
+
+<a href="" id="test"></a>
+</body>
+<script type="text/javascript">
+  window.onload=function (){
+    let test = document.getElementById("test");
+      ajaxRequest("get","ajaxRequest",true)
+
+
+    function ajaxRequest(type,url,flag){
+      let xmlHttpRequest = new XMLHttpRequest();
+      xmlHttpRequest.open(type,url,flag);
+
+      xmlHttpRequest.onreadystatechange=function (){
+        if (xmlHttpRequest.readyState==4 && xmlHttpRequest.status==200){
+            var obj = JSON.parse(xmlHttpRequest.responseText);
+          test.innerText="姓名："+obj.name;
+        }
+      }
+      xmlHttpRequest.send();
+    }
+  }
+</script>
+</html>

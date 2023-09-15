@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>You request success!</h2>
+<h3>request获取到数据：</h3>
+<ol>
+    <li>
+        <p><span>servlet api方式：</span><span th:text="${requestScope}"></span></p>
+    </li>
+    <li>
+        <p><span>ModelAndView方式：</span><span th:text="${mdv}"></span></p>
+    </li>
+    <li>
+        <p><span>Model方式：</span><span th:text="${model}"></span></p>
+    </li>
+    <li>
+        <p><span>Map方式：</span><span th:text="${map}"></span></p>
+    </li>
+    <li>
+        <p><span>ModelMap方式：</span><span th:text="${modelMap}"></span></p>
+    </li>
+</ol>
+
+<h3>session获取数据：</h3>
+使用原生servlet api实现存取数据：<span th:text="${session.sessionScope}"></span>
+
+<h3>Application获取数据：</h3>
+使用原生servlet api实现存取数据：<span th:text="${application.applicationScope}"></span>
+</body>
+</html>

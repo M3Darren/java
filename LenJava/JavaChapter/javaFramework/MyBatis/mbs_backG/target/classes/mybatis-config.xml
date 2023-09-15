@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<settings>
+<!--    此方法适用与字段名有_，例如：emp_name-->
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+<!--    开启延迟加载-->
+    <setting name="lazyLoadingEnabled" value="true"/>
+
+</settings>
+
+    <!--    设置类型别名-->
+    <typeAliases>
+        <!--        不设置alias表示使用类名作为别名，且不区分大小写-->
+        <!--        <typeAlias type="com.loy.mybatis.pojo.User" alias="User"></typeAlias>-->
+        <!--        将pojo包下所有类取默认别名-->
+        <package name="com.loy.mybatis.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!-- 配置数据源
+		default：表示使用哪一个数据库环境，只会多个环境中的一个
+-->
+    <environments default="development">
+        <environment id="development">
+            <!--            设置事务管理方式：
+                                1.JDBC：执行sql时使用JDBC原生事务管理器，需要手动提交或回滚事务
+                                2.MANAGED：表示被spring事务管理
+            -->
+            <transactionManager type="JDBC" />
+            <!--            配置数据源：
+                                type：设置数据源类型
+                                    1.POOLED：使用数据库连接池缓存数据库连接
+                                    2.UNPOOLED：不使用连接池缓存
+                                    3.JNDI：使用上下文数据源
+            -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatisdb" />
+                <property name="username" value="root" />
+                <property name="password" value="" />
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!-- 配置映射器（Mapper） -->
+    <mappers>
+        <!--        <mapper resource="mappers/ParamMapper.xml" />-->
+        <!-- 其他映射器... -->
+        <!--以包的形式引入：
+                要求：
+                    mapper接口所在包要与映射文件所在包一致
+                    mapper接口名与映射文件名一致
+        -->
+        <package name="com.loy.mybatis.mapper"/>
+    </mappers>
+
+</configuration>

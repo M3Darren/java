@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDao" class="com.loy.spring.dao.impl.BookDaoImpl"></bean>
+    <bean id="bookService" class="com.loy.spring.service.BookService">
+        <!--
+        外部bean注入：
+         -   注入BookDaoImpl对象
+         -   ref：上述id为 bookDao
+        -->
+        <property name="bookDaoImpl" ref="bookDao"></property>
+    </bean>
+</beans>

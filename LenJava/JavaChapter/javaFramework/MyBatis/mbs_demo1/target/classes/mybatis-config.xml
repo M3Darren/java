@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--引入外部文件-->
+    <properties resource="jdbc.properties"></properties>
+
+    <!-- 设置全局配置信息 -->
+    <settings>
+        <setting name="cacheEnabled" value="true" /> <!-- 是否启用缓存，默认为true -->
+        <setting name="lazyLoadingEnabled" value="true" /> <!-- 是否启用延迟加载，默认为false -->
+        <setting name="multipleResultSetsEnabled" value="true" /> <!-- 是否允许多结果集返回，默认为true -->
+        <setting name="mapUnderscoreToCamelCase" value="true" /> <!-- 是否开启自动驼峰命名法转换，默认为false -->
+        <!-- 其他全局配置属性... -->
+    </settings>
+
+
+<!--    设置类型别名-->
+    <typeAliases>
+<!--        不设置alias表示使用类名作为别名，且不区分大小写-->
+<!--        <typeAlias type="com.loy.mybatis.pojo.User" alias="User"></typeAlias>-->
+<!--        将pojo包下所有类取默认别名-->
+        <package name="com.loy.mybatis.pojo"/>
+    </typeAliases>
+
+    <!-- 配置数据源
+		default：表示使用哪一个数据库环境，只会多个环境中的一个
+-->
+    <environments default="development">
+        <environment id="development">
+<!--            设置事务管理方式：
+                    1.JDBC：执行sql时使用JDBC原生事务管理器，需要手动提交或回滚事务
+                    2.MANAGED：表示被spring事务管理
+-->
+            <transactionManager type="JDBC" />
+<!--            配置数据源：
+                    type：设置数据源类型
+                        1.POOLED：使用数据库连接池缓存数据库连接
+                        2.UNPOOLED：不使用连接池缓存
+                        3.JNDI：使用上下文数据源
+-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/MyBatisDB" />
+                <property name="username" value="root" />
+                <property name="password" value="" />
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/TestDB" />
+                <property name="username" value="root" />
+                <property name="password" value="" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置映射器（Mapper） -->
+    <mappers>
+<!--        <mapper resource="mappers/UserMapper.xml" />-->
+        <!-- 其他映射器... -->
+<!--以包的形式引入：
+        要求：
+            mapper接口所在包要与映射文件所在包一致
+            mapper接口名与映射文件名一致
+-->
+        <package name="com.loy.mybatis.mapper"/>
+    </mappers>
+
+</configuration>

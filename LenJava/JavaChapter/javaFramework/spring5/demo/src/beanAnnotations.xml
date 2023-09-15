@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+    <!--    开启组件扫描:
+    多个包用逗号隔开，或者直接写到该包上层目录
+    一般不建议扫描全部类
+    -->
+    <context:component-scan base-package="com.loy.spring" ></context:component-scan>
+
+    <!--自定义扫描：-->
+    <context:component-scan base-package="com.loy.spring" use-default-filters="false" >
+<!--        表示扫描注解类型为Controller的类会被扫描-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:include-filter>
+<!--        表示不扫描Repository类型的注解-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:exclude-filter>-->
+    </context:component-scan>
+</beans>

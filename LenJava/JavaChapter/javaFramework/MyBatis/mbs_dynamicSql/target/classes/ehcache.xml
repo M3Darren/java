@@ -1,0 +1,31 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="true"
+         monitoring="autodetect"
+         dynamicConfig="true">
+<!--磁盘保存路径-->
+    <diskStore path="java.io.tmpdir/ehcache" />
+
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU" />
+
+    <!-- 定义其他缓存块 -->
+    <!--
+    <cache name="cachename"
+    maxElementsInMemory="100"
+    eternal="true"
+    timeToIdleSeconds="0"
+    timeToLiveSeconds="0"
+    overflowToDisk="false"
+    diskExpiryThreadIntervalSeconds="120"
+    memoryStoreEvictionPolicy="LFU" />
+    -->
+
+</ehcache>

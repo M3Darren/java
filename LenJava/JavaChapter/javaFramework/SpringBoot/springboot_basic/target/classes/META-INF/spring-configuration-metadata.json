@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.loy.boot.domain.Person",
+      "sourceType": "com.loy.boot.domain.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.animal",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.loy.boot.domain.Person"
+    },
+    {
+      "name": "person.city",
+      "type": "java.lang.String",
+      "sourceType": "com.loy.boot.domain.Person"
+    },
+    {
+      "name": "person.hobby",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.loy.boot.domain.Person"
+    },
+    {
+      "name": "person.id",
+      "type": "java.lang.Integer",
+      "sourceType": "com.loy.boot.domain.Person"
+    },
+    {
+      "name": "person.name",
+      "type": "java.lang.String",
+      "sourceType": "com.loy.boot.domain.Person"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table th, td {
+            padding: 10px 20px;
+        }
+
+        table a {
+            display: inline-block;
+            width: 40%;
+            padding: 0 5%;
+        }
+
+    </style>
+    <script th:src="@{/static/js/vue.js}"></script>
+</head>
+<body>
+<h2>Success</h2>
+<table id="dataTable">
+    <thead>
+    <th  colspan="5">用户信息 </th>
+    </thead>
+    <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>city</th>
+    <th>phone</th>
+    <th colspan="2">options（<a th:href="@{/add}">add</a>）</th>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.city}"></td>
+        <td th:text="${user.phone}"></td>
+        <td>
+            <form th:action="@{'/user/'+${user.id}}" id="deleteForm" method="POST">
+                <input type="hidden" name="_method" value="DELETE"/>
+                <input type="submit" value="delete">
+            </form>
+            <a th:href="@{'/upd/'+${user.id}}">update</a></td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="learnCookie_Session">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/learnCookie_Session/web/WEB-INF/libs/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/learnCookie_Session/web/WEB-INF/libs/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/learnCookie_Session/web/WEB-INF/libs/kaptcha-2.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

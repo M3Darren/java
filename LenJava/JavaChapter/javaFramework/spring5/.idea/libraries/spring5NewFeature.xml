@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="spring5NewFeature">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/log4j-api-2.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/log4j-core-2.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/log4j-slf4j-impl-2.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-aop-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-beans-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-context-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-core-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-expression-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/druid-1.1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/spring-test-5.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/spring5NewFeature/libs/slf4j-api-2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

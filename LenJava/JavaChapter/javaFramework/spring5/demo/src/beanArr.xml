@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--    集合类型属性注入-->
+    <bean id="stu" class="com.loy.spring.bean.Student">
+        <!--        数组类型注入-->
+        <property name="course">
+            <array>
+                <value>java课程</value>
+                <value>vue课程</value>
+            </array>
+        </property>
+        <!--            list类型注入-->
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+
+<!--                若value值类型为对象类型,使用ref标签：
+                  <ref bean="其他bean的id"></ref>
+-->
+
+            </list>
+        </property>
+<!--        map类型注入-->
+        <property name="map">
+            <map>
+                <entry key="java" value="java"></entry>
+                <entry key="vue" value="vue" ></entry>
+            </map>
+        </property>
+    </bean>
+</beans>

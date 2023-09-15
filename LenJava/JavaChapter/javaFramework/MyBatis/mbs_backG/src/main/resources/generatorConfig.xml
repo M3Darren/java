@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 配置数据库连接 -->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mybatisdb"
+                        userId="root"
+                        password="">
+        </jdbcConnection>
+
+        <!-- 设置生成的实体类的包名和位置 -->
+        <javaModelGenerator targetPackage="com.loy.mybatis.pojo" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 设置生成的 SQL Mapper 的包名和位置 -->
+        <sqlMapGenerator targetPackage="com.loy.mybatis.mapper" targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 设置生成的 DAO 接口的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.loy.mybatis.mapper" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 配置生成的表及对应的实体类、SQL Mapper 和 DAO 接口 -->
+        <!--<table tableName="table_name" domainObjectName="TableName" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+        <table tableName="employee" domainObjectName="Employee"></table>
+        <table tableName="department" domainObjectName="Department"></table>
+    </context>
+</generatorConfiguration>

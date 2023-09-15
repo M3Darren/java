@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+
+    <bean id="book" class="com.loy.aop.xml.Book"></bean>
+    <bean id="bookProxy" class="com.loy.aop.xml.BookProxy"></bean>
+<!--    配置aop增强-->
+    <aop:config>
+<!--        切入点-->
+        <aop:pointcut id="add" expression="execution(* com.loy.aop.xml.Book.getId(..))"></aop:pointcut>
+<!--        配置切面-->
+        <aop:aspect ref="bookProxy">
+<!--            增强在切入点上-->
+            <aop:before method="before" pointcut-ref="add"></aop:before>
+        </aop:aspect>
+    </aop:config>
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+日志级别优先级：
+    OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL
+-->
+
+<!--status用于设置log4j2自身内部信息输出，设置为trace时，可输出各种log4j2的内部详细消息-->
+<Configuration status="ERROR" >
+<!--定义所有的appender-->
+    <Appenders>
+        <!--    输出日志到控制台-->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+<!--            控制日志输出格式-->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n}"></PatternLayout>
+        </Console>
+    </Appenders>
+<!--    定义logger，引入appender；才能使appender生效-->
+    <Loggers>
+         <Root level="INFO">
+             <AppenderRef ref="CONSOLE"></AppenderRef>
+         </Root>
+    </Loggers>
+</Configuration>

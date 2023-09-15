@@ -1,0 +1,11 @@
+com\loy\mybatisplus\mapper\StudentMapper.class
+com\loy\mybatisplus\mapper\UserMapper.class
+com\loy\mybatisplus\config\MyBatisPlusConfig.class
+com\loy\mybatisplus\pojo\User.class
+com\loy\mybatisplus\pojo\Goods.class
+com\loy\mybatisplus\mapper\GoodsMapper.class
+com\loy\mybatisplus\service\UserServiceImpl.class
+com\loy\mybatisplus\MbpDemoApplication.class
+com\loy\mybatisplus\service\UserService.class
+com\loy\mybatisplus\enums\SexEnum.class
+com\loy\mybatisplus\pojo\Student.class

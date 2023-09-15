@@ -1,0 +1,4 @@
+com\loy\mvc\config\WebConfig.class
+com\loy\mvc\config\SpringConfig.class
+com\loy\mvc\config\WebInit.class
+com\loy\mvc\controller\TestController.class

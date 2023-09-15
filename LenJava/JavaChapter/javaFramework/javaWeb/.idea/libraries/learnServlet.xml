@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="learnServlet">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lerarnServlet/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lerarnServlet/lib/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

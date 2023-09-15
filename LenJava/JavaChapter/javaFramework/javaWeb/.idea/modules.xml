@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/_03learnJsp/_03learnJsp.iml" filepath="$PROJECT_DIR$/_03learnJsp/_03learnJsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookStore/bookStore.iml" filepath="$PROJECT_DIR$/bookStore/bookStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javaWeb.iml" filepath="$PROJECT_DIR$/.idea/javaWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learnCookie_Session/learnCookie_Session.iml" filepath="$PROJECT_DIR$/learnCookie_Session/learnCookie_Session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learnFilter/learnFilter.iml" filepath="$PROJECT_DIR$/learnFilter/learnFilter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learnJson/learnJson.iml" filepath="$PROJECT_DIR$/learnJson/learnJson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learnXml/learnXml.iml" filepath="$PROJECT_DIR$/learnXml/learnXml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lerarnServlet/lerarnServlet.iml" filepath="$PROJECT_DIR$/lerarnServlet/lerarnServlet.iml" />
+    </modules>
+  </component>
+</project>

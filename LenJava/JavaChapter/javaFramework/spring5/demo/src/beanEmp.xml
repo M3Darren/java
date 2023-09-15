@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    注入内部bean-->
+<!--    方式1：-->
+    <bean class="com.loy.spring.bean.Emp" id="emp">
+        <property name="eName" value="张三"></property>
+        <property name="eGender" value="男"></property>
+<!--        设置部门属性-->
+        <property name="dept">
+            <bean id="dept" class="com.loy.spring.bean.Dept">
+                <property name="dName" value="技术部"></property>
+            </bean>
+        </property>
+    </bean>
+<!--    方式2：-->
+    <bean class="com.loy.spring.bean.Emp" id="emp1">
+        <property name="eName" value="李四"></property>
+        <property name="eGender" value="男"></property>
+        <!--        设置部门属性-->
+<!--        写法1：-->
+        <property name="dept" ref="dept1"></property>
+<!--        写法2：（此方式要求Emp类需要有getDept方法）
+              <property name="dept.dName" value="研发部"></property>
+-->
+
+    </bean>
+    <bean id="dept1" class="com.loy.spring.bean.Dept">
+    <property name="dName" value="研发部"></property>
+    </bean>
+</beans>

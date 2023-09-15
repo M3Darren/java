@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="beanLife" class="com.loy.spring.bean.BeanLifeCycle" init-method="init" p:beanName="mybean" destroy-method="destroy"></bean>
+
+<!--    配置前后置处理器，在本配置文件的bean都会被创建处理器-->
+    <bean id="beanpost" class="com.loy.spring.bean.BeanPostLift"></bean>
+</beans>

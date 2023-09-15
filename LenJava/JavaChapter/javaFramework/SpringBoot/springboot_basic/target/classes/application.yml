@@ -1,0 +1,9 @@
+server:
+  port: 8181
+person:
+  name: zhangsan
+  city: xiaogan
+  animal:
+    cat: buou
+  hobby: [aa,as,sasa]
+

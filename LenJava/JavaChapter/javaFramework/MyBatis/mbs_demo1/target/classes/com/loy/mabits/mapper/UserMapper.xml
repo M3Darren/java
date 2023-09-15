@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loy.mybatis.mapper.ParamMapper">
+    <insert id="insertUser">
+        insert into m_user
+        values (null, "admin", "123")
+    </insert>
+<!--    void updateUser();-->
+    <update id="updateUser">
+        update m_user set name="张三" where id>1
+    </update>
+
+<!--    User getUserById();
+查询功能标签必须设置resultType或resultMap
+resultType：设置默认映射（属性名对应表字段）
+resultMap：设置自定义映射（属性名可以与表字段不一样）
+-->
+    <select id="getUserById" resultType="com.loy.mybatis.pojo.User">
+        select * from m_user where id=4;
+    </select>
+
+<!--    List<User> userList();-->
+    <select id="userList"  resultType="com.loy.mybatis.pojo.User">
+        select * from m_user
+    </select>
+</mapper>

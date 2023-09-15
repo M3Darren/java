@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/demo01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcAllAnt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcAllAnt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcDomObj/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcDomObj/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcReqM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcReqM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcRestFul/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvcRestFul/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

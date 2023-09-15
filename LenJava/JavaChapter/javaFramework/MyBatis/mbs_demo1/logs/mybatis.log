@@ -1,0 +1,7 @@
+2023-08-03 18:30:22,674 DEBUG [LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2023-08-03 18:30:22,687 DEBUG [PooledDataSource] - PooledDataSource forcefully closed/removed all connections.
+2023-08-03 18:30:22,687 DEBUG [PooledDataSource] - PooledDataSource forcefully closed/removed all connections.
+2023-08-03 18:30:22,688 DEBUG [PooledDataSource] - PooledDataSource forcefully closed/removed all connections.
+2023-08-03 18:30:22,688 DEBUG [PooledDataSource] - PooledDataSource forcefully closed/removed all connections.
+2023-08-03 18:30:22,884 DEBUG [JdbcTransaction] - Opening JDBC Connection
+2023-08-03 18:30:24,753 DEBUG [PooledDataSource] - Created connection 1704237553.

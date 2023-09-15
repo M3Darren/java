@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loy.mybatis.mapper.DeptMapper">
+<!--    Department getDept(@Param("did") Integer did);-->
+    <select id="getDept" resultType="Department">
+        select id,name as deptName from department where id=#{did};
+    </select>
+
+
+<!--    一对多-->
+<!--    Department getDeptAndEmp(@Param("did") Integer did);-->
+<select id="getDeptAndEmp" resultMap="deptAndEmpResultMap">
+    select * from department left join employee on department.id=employee.did where department.id=#{did}
+</select>
+    <resultMap id="deptAndEmpResultMap" type="Department">
+        <id property="id" column="id"></id>
+        <result property="deptName" column="name"></result>
+<!--        ofType：集合中的类型-->
+        <collection property="employeeList" ofType="Employee">
+            <id property="id" column="employee.id"></id>
+            <result property="empName" column="ename"></result>
+            <result property="age" column="age"></result>
+        </collection>
+    </resultMap>
+
+
+<!--    分步查询第一步-->
+<!--    Department getDEStepOne(@Param("deptName") String deptName);-->
+<select id="getDEStepOne" resultMap="stepOneResultMap">
+    select * from department where name =#{deptName};
+</select>
+    <resultMap id="stepOneResultMap" type="Department">
+        <id property="id" column="id"></id>
+        <result property="deptName" column="name"></result>
+        <collection property="employeeList"
+                    select="com.loy.mybatis.mapper.FiledMappingAttr.getDeptAndEmpStepTwo"
+                    column="id"
+        ></collection>
+    </resultMap>
+</mapper>

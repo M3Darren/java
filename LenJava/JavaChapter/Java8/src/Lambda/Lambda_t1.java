@@ -1,0 +1,52 @@
+package Lambda;
+import org.junit.jupiter.api.Test;
+
+import java.util.Comparator;
+
+public class Lambda_t1 {
+    /**
+     * 六种情况下Lambda表达式类型：
+     * 1.无参，无返回值
+     * 2.一个参数，无返回值
+     * 3.指定泛型后，形参列表可不指定类型；（类型推断）
+     * 4.一个参数，可省略形参列表小括号
+     * 5.两个或以上参数，有多条语句，有返回值
+     * 6.Lambda体若只有一条语句，则可省略大括号和return
+     */
+    @Test
+    public void test1(){
+//        1.传统写法
+        Runnable r1=new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("hello 8");
+            }
+        };
+
+        Comparator<Integer> com1=new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1,o2);
+            }
+        };
+        r1.run();
+        System.out.println(com1.compare(12,2));
+
+//        Lambda表达式写法
+        System.out.println("======Lambda表达式写法=======");
+
+        Runnable r2=()-> System.out.println("word 8");
+        r2.run();
+
+        Comparator<Integer> com2=(o1,o2)->Integer.compare(o1,o2);
+        System.out.println(com2.compare(12,2));
+
+
+        System.out.println("=====方法引用======");
+        Comparator<Integer> com3=Integer :: compare;
+        System.out.println(com3.compare(12,1));
+
+    }
+
+
+}

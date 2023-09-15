@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loy.mybatis.mapper.SpecialSqlMapper">
+    <!--模糊查询-->
+   <select id="selectLike" resultType="User">
+       select * from m_user where name like "%"#{param}"%"
+   </select>
+
+<!--    批量删除-->
+    <delete id="deleteSomeUser">
+        delete from m_user where id in (${ids});
+    </delete>
+
+<!--    动态表名-->
+    <select id="getUserByTable" resultType="User">
+        select * from ${tableName}
+    </select>
+
+<!--    获取自增主键
+keyProperty表示将值映射给那个字段，当程序使用该对象时就会获取当前id而不用查询
+-->
+    <insert id="getAutoKey" useGeneratedKeys="true" keyProperty="id">
+        insert into m_user values (null,#{name},#{passwd} );
+    </insert>
+</mapper>

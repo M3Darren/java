@@ -1,0 +1,106 @@
+package Stream_api;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class Streattest {
+    /**
+     * Stream<E> stream()：返回顺序流
+     * Stream<E> parallelStream()：返回并行流
+     */
+    @Test
+    public void t1() {
+
+        List<Person> personStream = Person.getPersonList();
+//        1.创建数据源
+        Stream<Person> stream = personStream.stream();
+//        2.中间操作链
+        /**
+         * 筛选-切片
+         * 1 filter(Predicate p) 接收Lambda表达式，从流中过滤某些元素
+         * 2 limit(n)  接收整数，使其返回不超过给定数量的元素
+         * 3 skip(n)  接收整数，使其跳过前n个元素的流，若流中元素不足n则返回空流（与limit互补）
+         * 4 distinct()  通过流生成的元素的hashCode()和equals()去除重复项
+         *
+         * 映射
+         * 1 map(Function f)  接收一个函数，将元素转化（映射）成其他形式
+         * 2 flatMap(Function f)  接收一个函数，将流中每个值换成另一个流，然后把所有流连接成一个流（类似于嵌套for遍历
+         *
+         * 排序
+         * 1 sorted()  自然排序
+         */
+//            3.终止操作（如：System.out::println）
+        System.out.println("========筛选-切片：=============");
+        stream.filter(e -> e.getId() > 2).forEach(System.out::println);
+
+
+        System.out.println("======map映射操作：======");
+        stream = personStream.stream();
+        stream.map(e -> e.getName().toUpperCase()).forEach(System.out::println);
+        System.out.println("======flatMap映射操作：======");
+        Stream<String> list = Arrays.asList("sa", "ss", "dd").stream();
+        Stream<Character> rStream = list.flatMap(Streattest::fromStringToStream);
+        rStream.forEach(System.out::println);
+
+        System.out.println("======排序：=======");
+        stream = personStream.stream();
+        stream.sorted((e1, e2) -> Integer.compare(e1.getId(), e2.getId())).forEach(System.out::println);
+
+
+    }
+
+    @Test
+    public void t2() {
+//        终止操作
+        /**
+         * 查找与匹配
+         * allMatch(Predicate p)  检查是否匹配所有元素
+         * anyMatch(Predicate p)  检查是否至少匹配一个元素
+         * noneMatch(Predicate p) 检查是否“没有”匹配的元素
+         * findFirst              返回第一个元素
+         * findAny                返回当前流中任意元素
+         * count                  返回流中元素个数
+         * max(Comparator c)      返回流中最大值
+         * min(Comparator c)      返回流中最小值
+         * forEach(Consumer c)    内部迭代
+         *
+         * 归约:
+         * reduce(T identity,BinaryOperator)  将流中元素反复结合，得到一个值（如工资求和。。。）返回T ，identity为初始值与结合值操作得到最终结果
+         * reduce(BinaryOperator)  将流中元素反复结合，得到一个值返回Operator<T>
+         *
+         * 收集：
+         * collect(Collector c)  将流转换位其他形式，（如将元素存入list）
+         */
+        Stream<Person> stream = Person.getPersonList().stream();
+        System.out.println(stream.allMatch(e -> e.getId() < 20));//由于有一个id为31，所以不符合
+        stream = Person.getPersonList().stream();
+        System.out.println(stream.anyMatch(e -> "zhangsan".equals(e.getName())));//有一个name为zhangsan
+        stream = Person.getPersonList().stream();
+        Integer reduce = stream.map(e -> e.getId()).reduce(0, Integer::sum);//求和，若第一个参数为0，则表示id相加之和
+        System.out.println(reduce);
+        stream = Person.getPersonList().stream();
+        stream.filter(e->e.getId()>12).collect(Collectors.toList()).forEach(System.out::println);
+
+    }
+
+    /**
+     * 该方法将字符串转换成对应字符流
+     *
+     * @param str
+     * @return
+     */
+    public static Stream<Character> fromStringToStream(String str) {
+        ArrayList<Character> list = new ArrayList<>();
+        for (Character c : str.toCharArray()) {
+            list.add(c);
+        }
+        return list.stream();
+    }
+}
